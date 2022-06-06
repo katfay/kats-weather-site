@@ -1,3 +1,17 @@
+a {
+  color: #6798c0;
+  text-decoration: none;
+}
+
+.attribution {
+  font-size: 10px;
+  color: #fff;
+}
+
+.attribution .icons {
+  font-size: 15px;
+}
+
 .list-group-item {
   color: #7b879b;
 }
