@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script href="src/index.js"></script>
+    <title>Kat's weather app🌦</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="text-center mt-5 text-center"><span id="day-name">Sunday</span> <span id="hour">20</span>:<span id="minute">30</span></div>
+      <div class="mt-5 pt-5 text-center display-5" id="search"></div>
+      <div class="input-group mb-3 mt-5 pt-5 w-50 mx-auto">
+        <input
+          type="text"
+          class="form-control form-control-lg"
+          placeholder="Enter your city"
+          aria-label="Enter your city"
+          aria-describedby="button-addon2"
+          id="user-city"
+        />
+
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          id="button-addon2"
+        >
+          🔍
+        </button>
+      </div>
+      <h1 class="display-3 mt-5 pt-2">📍 In <span id="city">Melbourne</span> now, it's <span id="temperature">35</span>°C</h1>
+      <div class="row mt-4">
+        <div class="col-12">
+          <div class="card mx-auto border border-white mb-5">
+            <div class="card-body mx-auto border border-white">
+              <ul class="list-group list-group-horizontal">
+                <li class="list-group-item border border-white">☀️</li>
+                <li class="list-group-item flex-fill border border-white">
+                  Monday
+                </li>
+                <li class="list-group-item border border-white">35°</li>
+              </ul>
+              <ul class="list-group list-group-horizontal">
+                <li class="list-group-item border border-white">☀️</li>
+                <li class="list-group-item flex-fill border border-white">
+                  Tuesday
+                </li>
+                <li class="list-group-item border border-white">25°</li>
+              </ul>
+              <ul class="list-group list-group-horizontal">
+                <li class="list-group-item border border-white">🌧</li>
+                <li class="list-group-item flex-fill border border-white">
+                  Wednesday
+                </li>
+                <li class="list-group-item border border-white">20°</li>
+              </ul>
+              <ul class="list-group list-group-horizontal">
+                <li class="list-group-item border border-white">❄️</li>
+                <li class="list-group-item flex-fill border border-white">
+                  Thursday
+                </li>
+                <li class="list-group-item border border-white">-1°</li>
+              </ul>
+              <ul class="list-group list-group-horizontal">
+                <li class="list-group-item border border-white">🌤</li>
+                <li class="list-group-item flex-fill border border-white">
+                  Friday
+                </li>
+                <li class="list-group-item border border-white">10°</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <div class="fixed-bottom">
+        <div class="card border border-white contact-info">
+          <div class="card-body text-center border border-white">
+            <h6 class="card-title">Coded by Kat Fay</h5>
+            <a href="https://github.com/katfay" target="_blank"
+              ><img src="images/gitHubVector.svg" alt="GitHub symbol"
+            /></a>
+            <a href="https://au.linkedin.com/in/katfay" target="_blank"
+              ><img src="images/linkedInVector.svg" alt="LinkedIn symbol"
+            /></a>
+            <a href="https://twitter.com/katfay_" target="_blank"
+              ><img src="images/twitterVector.svg" alt="Twitter symbol"
+            /></a>
+            <p class="card-text mt-2">
+              Coded on the land of the Wurundjeri people of the Kulin Nation
+            </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>

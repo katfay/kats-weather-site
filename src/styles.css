@@ -1,0 +1,15 @@
+h1,
+h6 {
+  font-family: monospace;
+  text-align: center;
+}
+p {
+  text-align: center;
+  font-size: 15px;
+}
+.city {
+}
+
+.contact-info {
+  background-color: #fcf4d9;
+}
