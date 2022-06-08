@@ -1,15 +1,15 @@
 a {
-  color: #6798c0;
+  color: #fff;
   text-decoration: none;
+}
+
+a:hover {
+  color: #6798c0;
 }
 
 .attribution {
   font-size: 10px;
-  color: #fff;
-}
-
-.attribution .icons {
-  font-size: 15px;
+  color: #6798c0;
 }
 
 .list-group-item {
