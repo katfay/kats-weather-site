@@ -32,7 +32,7 @@
     <script src="src/index.js"></script>
     <title>what's the weather? 🌦</title>
   </head>
-  <body class="background-2">
+  <body class="background">
     <div class="container mt-5 mb-5 pt-5 pb-5 ps-5 pe-5">
       <div class="row">
         <div class="col-6 border-white border-left city-fill image">
@@ -75,7 +75,7 @@
                     <li
                       class="list-group-item w-25 border border-white text-end"
                     >
-                      <i class="fa-solid fa-cloud-sun h4 sun-cloud"></i>
+                      <i class="fa-solid fa-cloud-sun h4 cloudy"></i>
                     </li>
                     <li class="list-group-item w-50 border border-white">
                       Tuesday
@@ -101,7 +101,7 @@
                     <li
                       class="list-group-item w-25 border border-white text-end"
                     >
-                      <i class="fa-solid fa-snowflake h4 light-muted-blue"></i>
+                      <i class="fa-solid fa-snowflake h4 snow"></i>
                     </li>
                     <li class="list-group-item w-50 border border-white">
                       Thursday
@@ -112,7 +112,7 @@
                     <li
                       class="list-group-item w-25 border border-white text-end"
                     >
-                      <i class="fa-solid fa-cloud-bolt h4 blue-text"></i>
+                      <i class="fa-solid fa-cloud-bolt h4 thunderstorm"></i>
                     </li>
                     <li class="list-group-item w-50 border border-white">
                       Friday
@@ -128,18 +128,18 @@
               <div class="input-group mb-3 ps-5 pe-4">
                 <input
                   type="text"
-                  class="form-control form-control-l main-text-font round-button input-fill"
+                  class="form-control form-control-l main-text-font button-round search-field"
                   placeholder="Enter a city ..."
                   aria-label="Enter a city"
                   aria-describedby="button-addon2"
                 />
                 <button
-                  class="btn btn-outline-secondary main-text-font round-button blush"
+                  class="btn btn-outline-secondary main-text-font button-round button-pink"
                   type="button"
                   id="button-addon2"
                 >
                   <i
-                    class="fa-solid fa-magnifying-glass-location large-icon"
+                    class="fa-solid fa-magnifying-glass-location search-icon"
                   ></i>
                 </button>
               </div>
