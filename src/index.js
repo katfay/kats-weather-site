@@ -1,1 +1,1 @@
-
+prompt("Hello World");
