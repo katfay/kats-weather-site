@@ -23,11 +23,12 @@ body {
 ul {
   list-style-type: none;
   display: block;
-  max-width: 75%;
+  max-width: 50%;
   margin: 0 auto;
   padding-left: 0rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-top: 15%;
+  margin-bottom: 15%;
+  text-align: left;
 }
 
 li {
@@ -73,33 +74,27 @@ span {
 
 .background-pic div {
   font-family: "Nosifer", cursive;
-  font-size: 3rem;
+  font-size: 4rem;
   color: #fff;
   overflow-wrap: break-word;
   margin: 2rem 1rem 1rem 1rem;
 }
 
 .background-pic .current-temp {
-  text-align: right;
   font-size: 2rem;
-  margin: 0rem 1rem 1rem 0rem;
   padding-top: 0rem;
 }
 
 .right-column {
   background-color: #fff;
   font-family: "Quicksand", sans-serif;
-  font-size: 0.75rem;
+  font-size: 1rem;
   color: #041836;
   text-align: center;
 }
 
-.right-column ul {
-  text-align: left;
-}
-
 .right-column .here {
-  margin-top: 2rem;
+  margin-top: 2.5rem;
 }
 
 .right-column .now {
