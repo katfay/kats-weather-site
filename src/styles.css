@@ -6,6 +6,16 @@
   border: 1rem solid blue;
 }
 
+a {
+  color: white;
+  text-decoration: none;
+  transition: all ease-in-out 0.8s;
+}
+
+a:hover {
+  color: #f3334e;
+}
+
 body {
   background-color: #041836;
 }
@@ -46,7 +56,7 @@ span {
 
 .container-style {
   margin-top: 3rem;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   border: solid 0.3rem #fff;
   border-radius: 0.5rem;
 }
@@ -120,4 +130,11 @@ span {
 .fa-cloud-bolt {
   color: #041836;
   font-size: 1rem;
+}
+
+.attributions {
+  margin-top: 0;
+  padding-top: 0;
+  color: #6798c0;
+  font-size: 0.5rem;
 }
