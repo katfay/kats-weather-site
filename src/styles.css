@@ -38,6 +38,10 @@ span {
   display: inline-block;
 }
 
+.col-6 {
+  min-height: 30rem;
+}
+
 .weather-icon {
   width: 20%;
 }
@@ -64,7 +68,7 @@ span {
 .background-pic {
   background-image: url(https://bit.ly/3xf4RD9);
   border-style: none;
-  max-width: inherit;
+  background-size: cover;
 }
 
 .background-pic div {
