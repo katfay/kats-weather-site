@@ -12,6 +12,9 @@ body {
 
 ul {
   list-style-type: none;
+  display: block;
+  max-width: 75%;
+  margin: 0 auto;
   padding-left: 0rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
