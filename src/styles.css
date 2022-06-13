@@ -5,3 +5,39 @@
 .test-border-focus {
   border: 1rem solid blue;
 }
+
+body {
+  background-color: #041836;
+}
+
+.deep-blue {
+  color: #041836;
+}
+
+.container-style {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  border: solid 0.3rem #fff;
+  border-radius: 0.5rem;
+}
+
+.background-pic {
+  background-image: url(https://bit.ly/3xf4RD9);
+  border-style: none;
+  max-width: inherit;
+}
+
+.background-pic div {
+  font-family: "Nosifer", cursive;
+  font-size: 3rem;
+  color: #fff;
+  overflow-wrap: break-word;
+  margin: 2rem 1rem 1rem 1rem;
+}
+
+.background-pic .current-temp {
+  text-align: right;
+  font-size: 2rem;
+  margin: 0rem 1rem 1rem 0rem;
+  padding-top: 0rem;
+}
