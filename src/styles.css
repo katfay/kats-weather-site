@@ -17,6 +17,10 @@ ul {
   margin-bottom: 1rem;
 }
 
+li {
+  color: #7b879b;
+}
+
 span {
   display: inline-block;
 }
@@ -90,6 +94,27 @@ span {
   color: #f3334e;
 }
 
+.fa-sun {
+  color: #fdd85d;
+  font-size: 1rem;
+}
+
 .fa-cloud-rain {
   color: #6798c0;
+  font-size: 1rem;
+}
+
+.fa-cloud-sun {
+  color: #7b879b;
+  font-size: 1rem;
+}
+
+.fa-snowflake {
+  color: rgba(152, 180, 199, 0.8);
+  font-size: 1rem;
+}
+
+.fa-cloud-bolt {
+  color: #041836;
+  font-size: 1rem;
 }
