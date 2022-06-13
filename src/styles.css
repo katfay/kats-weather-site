@@ -10,6 +10,29 @@ body {
   background-color: #041836;
 }
 
+ul {
+  list-style-type: none;
+  padding-left: 0rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+span {
+  display: inline-block;
+}
+
+.weather-icon {
+  width: 20%;
+}
+
+.day-name {
+  width: 50%;
+}
+
+.forecast {
+  width: 30%;
+}
+
 .deep-blue {
   color: #041836;
 }
@@ -40,4 +63,33 @@ body {
   font-size: 2rem;
   margin: 0rem 1rem 1rem 0rem;
   padding-top: 0rem;
+}
+
+.right-column {
+  background-color: #fff;
+  font-family: "Quicksand", sans-serif;
+  font-size: 0.75rem;
+  color: #041836;
+  text-align: center;
+}
+
+.right-column ul {
+  text-align: left;
+}
+
+.right-column .here {
+  margin-top: 2rem;
+}
+
+.right-column .now {
+  font-weight: 700;
+  font-size: smaller;
+}
+
+.fa-location-dot {
+  color: #f3334e;
+}
+
+.fa-cloud-rain {
+  color: #6798c0;
 }
