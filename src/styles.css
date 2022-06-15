@@ -41,16 +41,18 @@ span {
 
 button {
   border-radius: 0 100rem 100rem 0;
-  border-style: none;
+  border: solid 0.1rem rgba(246, 182, 148, 0.2);
   background-color: rgba(246, 182, 148, 0.2);
   box-shadow: 10px 10px 10px rgb(152 180 199 / 50%);
   padding-left: 0;
+  margin-left: 0;
   transition: 0.3s all ease-in-out;
-  outline: none;
+  height: 3.5rem;
+  vertical-align: middle;
 }
 
 button:active {
-  transform: scale(0.9);
+  transform: scale(1.2);
   box-shadow: 5px 5px 5px rgb(152 180 199 / 50%);
 }
 
@@ -68,6 +70,28 @@ button i {
   color: #f3334e;
   transition: 1s all ease-in-out;
 }
+
+input {
+  border-radius: 100rem 0 0 100rem;
+  border: solid 0.1rem rgb(246, 182, 148);
+  border-right-color: #fff;
+  background-color: #fff;
+  padding-right: 0;
+  margin-right: 0;
+  padding-left: 1rem;
+  transition: 0.3s all ease-in-out;
+  height: 3.5rem;
+  vertical-align: middle;
+}
+
+input:focus {
+  outline: none;
+}
+
+::-webkit-input-placeholder {
+  color: rgba(152, 180, 199, 0.8);
+}
+
 .col-6 {
   min-height: 30rem;
 }
