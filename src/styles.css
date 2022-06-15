@@ -40,6 +40,8 @@ span {
 }
 
 button {
+  position: relative;
+  left: -0.5rem;
   border-radius: 0 100rem 100rem 0;
   border: solid 0.1rem rgba(246, 182, 148, 0.2);
   background-color: rgba(246, 182, 148, 0.2);
