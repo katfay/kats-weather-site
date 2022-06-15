@@ -43,7 +43,7 @@ button {
   position: relative;
   left: -0.5rem;
   border-radius: 0 100rem 100rem 0;
-  border: solid 0.1rem rgba(246, 182, 148, 0.2);
+  border-style: none;
   background-color: rgba(246, 182, 148, 0.2);
   box-shadow: 10px 10px 10px rgb(152 180 199 / 50%);
   padding-left: 0;
