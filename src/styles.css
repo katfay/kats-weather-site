@@ -41,9 +41,10 @@ span {
 
 button {
   position: relative;
-  left: -0.5rem;
+  left: -0.27rem;
   border-radius: 0 100rem 100rem 0;
   border-style: none;
+  border-left-style: none;
   background-color: rgba(246, 182, 148, 0.2);
   box-shadow: 10px 10px 10px rgb(152 180 199 / 50%);
   padding-left: 0;
@@ -59,7 +60,7 @@ button:active {
 }
 
 button:hover {
-  background-color: #f55167;
+  background-color: #f3334e;
 }
 
 button:hover i {
@@ -76,7 +77,7 @@ button i {
 input {
   border-radius: 100rem 0 0 100rem;
   border: solid 0.1rem rgb(246, 182, 148);
-  border-right-color: #fff;
+  border-right-style: none;
   background-color: #fff;
   padding-right: 0;
   margin-right: 0;
@@ -88,9 +89,10 @@ input {
 
 input:focus {
   outline: none;
+  background-color: rgba(246, 182, 148, 0.2);
 }
 
-::-webkit-input-placeholder {
+input::-webkit-input-placeholder {
   color: rgba(152, 180, 199, 0.8);
 }
 
