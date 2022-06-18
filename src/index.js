@@ -15,7 +15,7 @@ function displayName(apiResponse) {
 
 function displayTemperature(apiResponse) {
   let temperatureElement = document.querySelector("#searched-temperature");
-  temperatureElement.innerHTML = apiResponse.data.main.temp;
+  temperatureElement.innerHTML = Math.round(apiResponse.data.main.temp);
   let units = document.querySelector("#units");
   units.innerHTML = "°C";
 }
