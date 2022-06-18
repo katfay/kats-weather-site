@@ -3,6 +3,7 @@ function showSearchedCurrent() {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Paris&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayName);
   axios.get(apiUrl).then(displayTemperature);
+  axios.get(apiUrl).then(returnWeatherConditions);
 }
 
 function displayName(apiResponse) {
@@ -15,6 +16,11 @@ function displayTemperature(apiResponse) {
   temperatureElement.innerHTML = Math.round(apiResponse.data.main.temp);
   let units = document.querySelector("#units");
   units.innerHTML = "°C";
+}
+
+function returnWeatherConditions(apiResponse) {
+  console.log("returnWeatherConditions has been called");
+  console.log(apiResponse.data.weather[0].description);
 }
 
 let searchButton = document.querySelector("#userSearch");
