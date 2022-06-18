@@ -1,42 +1,11 @@
-.test-border {
-  border: 1px solid red;
-}
-
-.test-border-focus {
-  border: 1rem solid blue;
+body {
+  background-color: #041836;
 }
 
 a {
   color: white;
   text-decoration: none;
   transition: all ease-in-out 0.8s;
-}
-
-a:hover {
-  color: #f3334e;
-}
-
-body {
-  background-color: #041836;
-}
-
-ul {
-  list-style-type: none;
-  display: block;
-  max-width: 50%;
-  margin: 0 auto;
-  padding-left: 0rem;
-  margin-top: 15%;
-  margin-bottom: 15%;
-  text-align: left;
-}
-
-li {
-  color: #7b879b;
-}
-
-span {
-  display: inline-block;
 }
 
 button {
@@ -54,17 +23,12 @@ button {
   vertical-align: middle;
 }
 
-button:active {
-  transform: scale(1.2);
-  box-shadow: 5px 5px 5px rgb(152 180 199 / 50%);
-}
-
-button:hover {
-  background-color: #f3334e;
-}
-
-button:hover i {
+.background-pic div {
+  font-family: "Nosifer", cursive;
+  font-size: 4rem;
   color: #fff;
+  overflow-wrap: break-word;
+  margin: 2rem 1rem 1rem 1rem;
 }
 
 button i {
@@ -87,6 +51,42 @@ input {
   vertical-align: middle;
 }
 
+li {
+  color: #7b879b;
+}
+
+span {
+  display: inline-block;
+}
+
+ul {
+  list-style-type: none;
+  display: block;
+  max-width: 50%;
+  margin: 0 auto;
+  padding-left: 0rem;
+  margin-top: 15%;
+  margin-bottom: 15%;
+  text-align: left;
+}
+
+a:hover {
+  color: #f3334e;
+}
+
+button:active {
+  transform: scale(1.2);
+  box-shadow: 5px 5px 5px rgb(152 180 199 / 50%);
+}
+
+button:hover {
+  background-color: #f3334e;
+}
+
+button:hover i {
+  color: #fff;
+}
+
 input:focus {
   outline: none;
   background-color: rgba(246, 182, 148, 0.2);
@@ -96,76 +96,34 @@ input::-webkit-input-placeholder {
   color: rgba(152, 180, 199, 0.8);
 }
 
-.col-6 {
-  min-height: 30rem;
+.attributions {
+  margin-top: 0;
+  padding-top: 0;
+  color: #6798c0;
+  font-size: 0.5rem;
 }
 
-.weather-icon {
-  width: 20%;
+.background-pic {
+  background-image: url(https://bit.ly/3xf4RD9);
+  background-size: cover;
+  max-width: 100%;
+  height: auto;
+}
+
+.background-pic .city-current-temp {
+  font-size: 2rem;
+}
+
+.col-6 {
+  min-height: 30rem;
 }
 
 .day-name {
   width: 50%;
 }
 
-.forecast {
-  width: 30%;
-}
-
-.deep-blue {
+.fa-cloud-bolt {
   color: #041836;
-}
-
-.container-style {
-  margin-top: 3rem;
-  margin-bottom: 1rem;
-  border: solid 0.3rem #fff;
-  border-radius: 0.5rem;
-  background-color: #fff;
-}
-
-.background-pic {
-  background-image: url(https://bit.ly/3xf4RD9);
-  border-style: none;
-  background-size: cover;
-}
-
-.background-pic div {
-  font-family: "Nosifer", cursive;
-  font-size: 4rem;
-  color: #fff;
-  overflow-wrap: break-word;
-  margin: 2rem 1rem 1rem 1rem;
-}
-
-.background-pic .current-temp {
-  font-size: 2rem;
-  padding-top: 0rem;
-}
-
-.right-column {
-  background-color: #fff;
-  font-family: "Quicksand", sans-serif;
-  font-size: 1rem;
-  color: #041836;
-  text-align: center;
-}
-
-.right-column .here {
-  margin-top: 2.5rem;
-}
-
-.right-column .now {
-  font-weight: 700;
-  font-size: smaller;
-}
-
-.fa-location-dot {
-  color: #f3334e;
-}
-
-.fa-sun {
-  color: #fdd85d;
   font-size: 1rem;
 }
 
@@ -179,19 +137,61 @@ input::-webkit-input-placeholder {
   font-size: 1rem;
 }
 
+.fa-location-dot {
+  color: #f3334e;
+}
+
 .fa-snowflake {
   color: rgba(152, 180, 199, 0.8);
   font-size: 1rem;
 }
 
-.fa-cloud-bolt {
-  color: #041836;
+.fa-sun {
+  color: #fdd85d;
   font-size: 1rem;
 }
 
-.attributions {
-  margin-top: 0;
-  padding-top: 0;
-  color: #6798c0;
-  font-size: 0.5rem;
+.forecast {
+  width: 30%;
+}
+
+.main-container {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  border: solid 0.3rem #fff;
+  border-radius: 0.5rem;
+  background-color: #fff;
+}
+
+.right-column {
+  background-color: #fff;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1rem;
+  color: #041836;
+  text-align: center;
+}
+
+.right-column .here-info {
+  margin-top: 2.5rem;
+}
+
+.right-column .now-info {
+  font-weight: 700;
+  font-size: smaller;
+}
+
+.temp-units {
+  font-size: 1.25rem;
+}
+
+.weather-icon {
+  width: 20%;
+}
+
+.test-border {
+  border: 1px solid red;
+}
+
+.test-border-focus {
+  border: 1rem solid blue;
 }
