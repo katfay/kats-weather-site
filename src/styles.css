@@ -119,6 +119,7 @@ input:focus {
   margin-bottom: 1rem;
   border: solid 0.3rem #fff;
   border-radius: 0.5rem;
+  background-color: #fff;
 }
 
 .background-pic {
