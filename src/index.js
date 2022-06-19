@@ -24,5 +24,20 @@ function returnWeatherConditions(apiResponse) {
   console.log(apiResponse.data.weather[0].description);
 }
 
+function findUserLocation(browserResponse) {
+  console.log(browserResponse);
+  let geoLatitude = browserResponse.coords.latitude;
+  console.log(geoLatitude);
+  let geoLongitude = browserResponse.coords.longitude;
+  console.log(geoLongitude);
+}
+
+function showUserLocation() {
+  let apiKey = "a95c2c6739994ba4903e007ee817e7d1";
+  let apiGeoUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${geoLatitude}&lon=${geoLongitude}&appid=${apiKey}&units=metric`;
+}
+
 let searchButton = document.querySelector("#userSearch");
 searchButton.addEventListener("click", showSearchedCurrent);
+
+let userLocation = navigator.geolocation.getCurrentPosition(findUserLocation);
