@@ -1,15 +1,6 @@
-function showSearchedCurrent() {
-  let apiKey = "a95c2c6739994ba4903e007ee817e7d1";
-  let userCity = document.querySelector("#searchedCity").value;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${userCity}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(displayName);
-  axios.get(apiUrl).then(displayTemperature);
-  axios.get(apiUrl).then(returnWeatherConditions);
-}
-
-function displayName(apiResponse) {
-  let cityElement = document.querySelector("#city");
-  cityElement.innerHTML = apiResponse.data.name;
+function returnWeatherConditions(apiResponse) {
+  console.log("returnWeatherConditions has been called");
+  console.log(apiResponse.data.weather[0].description);
 }
 
 function displayTemperature(apiResponse) {
@@ -19,9 +10,18 @@ function displayTemperature(apiResponse) {
   units.innerHTML = "°C";
 }
 
-function returnWeatherConditions(apiResponse) {
-  console.log("returnWeatherConditions has been called");
-  console.log(apiResponse.data.weather[0].description);
+function displayName(apiResponse) {
+  let cityElement = document.querySelector("#city");
+  cityElement.innerHTML = apiResponse.data.name;
+}
+
+function showSearchedCurrent() {
+  let apiKey = "a95c2c6739994ba4903e007ee817e7d1";
+  let userCity = document.querySelector("#searchedCity").value;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${userCity}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayName);
+  axios.get(apiUrl).then(displayTemperature);
+  axios.get(apiUrl).then(returnWeatherConditions);
 }
 
 function showGeoTemperature(apiResponse) {
