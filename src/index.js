@@ -1,6 +1,7 @@
 function showSearchedCurrent() {
   let apiKey = "a95c2c6739994ba4903e007ee817e7d1";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Paris&appid=${apiKey}&units=metric`;
+  let userCity = document.querySelector("#searchedCity").value;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${userCity}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayName);
   axios.get(apiUrl).then(displayTemperature);
   axios.get(apiUrl).then(returnWeatherConditions);
