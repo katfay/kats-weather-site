@@ -24,20 +24,29 @@ function returnWeatherConditions(apiResponse) {
   console.log(apiResponse.data.weather[0].description);
 }
 
-function findUserLocation(browserResponse) {
-  console.log(browserResponse);
-  let geoLatitude = browserResponse.coords.latitude;
-  console.log(geoLatitude);
-  let geoLongitude = browserResponse.coords.longitude;
-  console.log(geoLongitude);
+function showGeoTemperature(apiResponse) {
+  console.log("showGeoTemperature has been called");
+  let geoTemperatureResult = Math.round(apiResponse.data.main.temp);
+  console.log(geoTemperatureResult);
+  let temperatureHere = document.querySelector("#temperature-here");
+  temperatureHere.innerHTML = geoTemperatureResult;
 }
 
-function showUserLocation() {
+function showUserLocation(geoLatitude, geoLongitude) {
+  console.log(geoLatitude);
+  console.log(geoLongitude);
   let apiKey = "a95c2c6739994ba4903e007ee817e7d1";
   let apiGeoUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${geoLatitude}&lon=${geoLongitude}&appid=${apiKey}&units=metric`;
+  axios.get(apiGeoUrl).then(showGeoTemperature);
 }
+
+function findUserLocation(browserResponse) {
+  let geoLatitude = browserResponse.coords.latitude;
+  let geoLongitude = browserResponse.coords.longitude;
+  showUserLocation(geoLatitude, geoLongitude);
+}
+
+let userLocation = navigator.geolocation.getCurrentPosition(findUserLocation);
 
 let searchButton = document.querySelector("#userSearch");
 searchButton.addEventListener("click", showSearchedCurrent);
-
-let userLocation = navigator.geolocation.getCurrentPosition(findUserLocation);
