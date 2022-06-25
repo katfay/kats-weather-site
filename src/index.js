@@ -24,6 +24,17 @@ function showSearchedCurrent() {
   axios.get(apiUrl).then(returnWeatherConditions);
 }
 
+function getMorningArvo(dateResponse) {
+  console.log("getMorningArvo function has been called");
+  let morningArvo = document.querySelector("#ampm");
+  let hour = now.getHours(dateResponse);
+  if (hour <= 11) {
+    morningArvo.innerHTML = "am";
+  } else {
+    morningArvo.innerHTML = "pm";
+  }
+}
+
 function getCurrentMinutes(dateResponse) {
   console.log("getCurrentMinute function has been called");
   let currentMinutes = now.getMinutes(dateResponse);
@@ -45,7 +56,7 @@ function getCurrentHour(dateResponse) {
 }
 
 function getDayName(dateResponse) {
-  console.log("getMonth function has been called");
+  console.log("getDayName function has been called");
   let dayNames = [
     "Sunday",
     "Monday",
@@ -78,8 +89,6 @@ function showGeoTemperature(apiResponse) {
 }
 
 function showUserLocation(geoLatitude, geoLongitude) {
-  console.log(geoLatitude);
-  console.log(geoLongitude);
   let apiKey = "a95c2c6739994ba4903e007ee817e7d1";
   let apiGeoUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${geoLatitude}&lon=${geoLongitude}&appid=${apiKey}&units=metric`;
   axios.get(apiGeoUrl).then(showGeoTemperature);
@@ -92,12 +101,19 @@ function findUserLocation(browserResponse) {
   showUserLocation(geoLatitude, geoLongitude);
 }
 
-let userLocation = navigator.geolocation.getCurrentPosition(findUserLocation);
+let userLocation =
+  navigator.geolocation.getCurrentPosition(
+    findUserLocation
+  ); /* Display current location and temperature information on page*/
 
 let now = new Date();
-getDayName(now);
-getCurrentHour(now);
-getCurrentMinutes(now);
+getDayName(now); /* Display name of current day on page */
+getCurrentHour(now); /* Display current time (hour) on page */
+getCurrentMinutes(now); /* Display current time (minute) on page */
+getMorningArvo(now); /* Display am/pm after current time on page */
 
 let searchButton = document.querySelector("#userSearch");
-searchButton.addEventListener("click", showSearchedCurrent);
+searchButton.addEventListener(
+  "click",
+  showSearchedCurrent
+); /* When user clicks search, find and display the searched city name and its current temperature on the page */
