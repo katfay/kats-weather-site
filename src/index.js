@@ -1,3 +1,8 @@
+function showForecast(apiResponse) {
+  console.log("showForecast has been called");
+  let apiKey = "a95c2c6739994ba4903e007ee817e7d1";
+}
+
 function returnWeatherConditions(apiResponse) {
   console.log("returnWeatherConditions has been called");
   console.log(apiResponse.data.weather[0].description);
@@ -15,6 +20,19 @@ function displayName(apiResponse) {
   cityElement.innerHTML = apiResponse.data.name;
 }
 
+function returnCoords(apiResponse) {
+  let apiKey = "a95c2c6739994ba4903e007ee817e7d1";
+  console.log("returnCoords has been called");
+  let latitude = console.log(
+    apiResponse.data.coord.lat
+  ); /*find latitude of searched city*/
+  let longitude = console.log(
+    apiResponse.data.coord.long
+  ); /*find longitude of searched city*/
+  let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
+  axios.get(apiUrl).then(showForecast);
+}
+
 function showSearchedCurrent() {
   let apiKey = "a95c2c6739994ba4903e007ee817e7d1";
   let userCity = document.querySelector("#searchedCity").value;
@@ -22,6 +40,7 @@ function showSearchedCurrent() {
   axios.get(apiUrl).then(displayName);
   axios.get(apiUrl).then(displayTemperature);
   axios.get(apiUrl).then(returnWeatherConditions);
+  axios.get(apiUrl).then(returnCoords);
 }
 
 function getMorningArvo(dateResponse) {
