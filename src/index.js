@@ -24,6 +24,43 @@ function showSearchedCurrent() {
   axios.get(apiUrl).then(returnWeatherConditions);
 }
 
+function getCurrentMinutes(dateResponse) {
+  console.log("getCurrentMinute function has been called");
+  let currentMinutes = now.getMinutes(dateResponse);
+  console.log(currentMinutes);
+  let minutes = document.querySelector("#minutes");
+  minutes.innerHTML = `.${currentMinutes}`;
+}
+
+function getCurrentHour(dateResponse) {
+  console.log("getCurrentHour function has been called");
+  let hours = [
+    12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+    11,
+  ];
+  let currentHour = hours[now.getHours(dateResponse)];
+  console.log(currentHour);
+  let hour = document.querySelector("#hour");
+  hour.innerHTML = currentHour;
+}
+
+function getDayName(dateResponse) {
+  console.log("getMonth function has been called");
+  let dayNames = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let dayName = dayNames[now.getDay(dateResponse)];
+  console.log(dayName);
+  let today = document.querySelector("#day");
+  today.innerHTML = `${dayName},`;
+}
+
 function showGeoCity(apiResponse) {
   console.log("showGeoCity has been called");
   let geoCityResult = apiResponse.data.name;
@@ -56,6 +93,11 @@ function findUserLocation(browserResponse) {
 }
 
 let userLocation = navigator.geolocation.getCurrentPosition(findUserLocation);
+
+let now = new Date();
+getDayName(now);
+getCurrentHour(now);
+getCurrentMinutes(now);
 
 let searchButton = document.querySelector("#userSearch");
 searchButton.addEventListener("click", showSearchedCurrent);
