@@ -1,9 +1,3 @@
-function showForecast(apiResponse) {
-  console.log("showForecast has been called");
-  console.table(apiResponse.data);
-  let apiKey = "a95c2c6739994ba4903e007ee817e7d1";
-}
-
 function returnWeatherConditions(apiResponse) {
   console.log("returnWeatherConditions has been called");
   console.log(apiResponse.data.weather[0].description);
@@ -21,20 +15,6 @@ function displayName(apiResponse) {
   cityElement.innerHTML = apiResponse.data.name;
 }
 
-function returnCoords(apiResponse) {
-  console.log("returnCoords has been called");
-  console.table(apiResponse.data);
-  let latitude = console.log(
-    apiResponse.data.coord.lat
-  ); /*find latitude of searched city*/
-  let longitude = console.log(
-    apiResponse.data.coord.lon
-  ); /*find longitude of searched city*/
-  let apiKey = "a95c2c6739994ba4903e007ee817e7d1";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/forecast/daily?lat=-37.3667&lon=143.1667&appid=${apiKey}`; /* Set API call address to call a 6 day forecast from the API, based on the latitude and longitude of the searched city */
-  axios.get(apiUrl).then(showForecast);
-}
-
 function showSearchedCurrent() {
   let apiKey = "a95c2c6739994ba4903e007ee817e7d1";
   let userCity = document.querySelector("#searchedCity").value;
@@ -42,7 +22,6 @@ function showSearchedCurrent() {
   axios.get(apiUrl).then(displayName);
   axios.get(apiUrl).then(displayTemperature);
   axios.get(apiUrl).then(returnWeatherConditions);
-  axios.get(apiUrl).then(returnCoords);
 }
 
 function getMorningArvo(dateResponse) {
