@@ -147,26 +147,35 @@ function getDayName(dateResponse) {
   today.innerHTML = `${dayName},`;
 }
 
-function showGeoCity(apiResponse) {
-  console.log("showGeoCity has been called");
-  let geoCityResult = apiResponse.data.name;
-  console.log(geoCityResult);
-  let currentPlace = document.querySelector("#here");
-  currentPlace.innerHTML = geoCityResult;
+function getWeatherIcon(apiResponse) {
+  let weatherIcon = document.getElementById("weather-icon-geo");
+  console.log(apiResponse.data);
+  let weatherDescription = apiResponse.data.weather[0].id;
+  if (weatherDescription === 803) {
+    weatherIcon.src = "https://bit.ly/3ykyTac";
+  } else {
+    weatherIcon.src = "https://bit.ly/3ykyTac";
+  }
 }
 
 function showGeoTemperature(apiResponse) {
-  console.log("showGeoTemperature has been called");
   let geoTemperatureResult = Math.round(apiResponse.data.main.temp);
   console.log(geoTemperatureResult);
   let temperatureHere = document.querySelector("#temperature-here");
   temperatureHere.innerHTML = geoTemperatureResult;
+  getWeatherIcon(apiResponse);
+}
+
+function showGeoCity(apiResponse) {
+  let geoCityResult = apiResponse.data.name;
+  let currentPlace = document.querySelector("#here");
+  currentPlace.innerHTML = geoCityResult;
+  showGeoTemperature(apiResponse);
 }
 
 function showUserLocation(geoLatitude, geoLongitude) {
   let apiKey = "a95c2c6739994ba4903e007ee817e7d1";
   let apiGeoUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${geoLatitude}&lon=${geoLongitude}&appid=${apiKey}&units=metric`;
-  axios.get(apiGeoUrl).then(showGeoTemperature);
   axios.get(apiGeoUrl).then(showGeoCity);
 }
 
