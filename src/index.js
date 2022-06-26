@@ -49,9 +49,42 @@ function displayName(apiResponse) {
 function showWeatherPhoto(apiResponse) {
   console.log("showWeatherPhoto function has been called");
   let weatherIdResponse = apiResponse.data.weather[0].id;
+  let cloudyPic = "https://bit.ly/3bnQ161";
+  let cloudAndSkyPic = "https://bit.ly/3HVRb56";
+  let fewCloudsPic = "https://bit.ly/3bwvcVS";
+  let clearSkyPic = "https://bit.ly/3NmlvXq";
+  let snowPic = "https://bit.ly/39QArPS";
+  let thunderstormPic = "https://bit.ly/3xY0v3t";
+  let rainPic = "https://bit.ly/3Noron3";
+  let hazyPic = "https://bit.ly/3I7Zued";
   let weatherPhoto = document.getElementById("weather-photo");
-  weatherPhoto.style =
-    "background-image: url(https://lh3.googleusercontent.com/F_OcShyH6D9qH9yJCHkkLB_U6HsgpmXlWA1Wqjd5GW3oDLRcAu1fFSU15akPfWHA64MAX-7romYaw-VJ4J06IkVph_NboXvDTf-YEWupUxZhAYDVqUnt7YCk_-dJMH2JjYPqhVzqDjp1p-YD7RXQsy4gSf1ttdjo0b2OquZR49ALPzjohBSiPu5XNypTUaYEbk_7JgcHNmEws8wCcKcHtGjYxV3f6XCU12-I0pxtGIiSeGMGmhu4YH6Ucra3dRDZ3v9lPq1XJzk8vRzuJL0eNXPl_7gUsE4EX9OeTyEAAN5PtDsdGiVRM5bG643SsJUn74eS3rieFl8Q2erEkfBPLp7Vm-k7RleFo_YY9iWhrRKdvK3l7iVpfDrp0BOQmpu1H25Fel3_aIkrRgLLT2IAM0p0GzaIIr5waqppeEvg7hCAd8k9EejIW7KptuzzUozOeA7kH34BZq0NJTzOOSNi-mtPSGZpN3FkI4XxxCM-a84a5AjBsaBOWtpCPbxoOdSzyK--a6Np7hwiUKpHUkWPkhAaj6X4pEkvU5mCbZYWMb_LQapnNjGMdjy1G1hqlSdwrsYuKmBSoKzUZz5s_pPQOHlhdryAgYCjDX9t4qZFsixhJGXi2wiU6LI4wX-jEn47Bnr4uqvFOhYt1ACjJnN9Im8jnKet6lvfMIOgm7PCcSZPlTXos0WKDKMV7jtPez86BG4bgrz68NfsPUZUsmyMpy7Q50Fg1PrIsNMB6oYun2qKaNH50JV0bX9bRlfEXf5FXbHIRiarExnv_oc7rmSFuUMW26CpJeixHMs=w732-h942-no?authuser=0);";
+  if (weatherIdResponse >= 200 && weatherIdResponse <= 232) {
+    weatherPhoto.style = `background-image: url(${thunderstormPic});`;
+  }
+  if (weatherIdResponse >= 300 && weatherIdResponse <= 321) {
+    weatherPhoto.style = `background-image: url(${rainPic});`;
+  }
+  if (weatherIdResponse >= 500 && weatherIdResponse <= 531) {
+    weatherPhoto.style = `background-image: url(${rainPic});`;
+  }
+  if (weatherIdResponse >= 600 && weatherIdResponse <= 622) {
+    weatherPhoto.style = `background-image: url(${snowPic});`;
+  }
+  if (weatherIdResponse === 800) {
+    weatherPhoto.style = `background-image: url(${clearSkyPic});`;
+  }
+  if (weatherIdResponse === 801) {
+    weatherPhoto.style = `background-image: url(${fewCloudsPic});`;
+  }
+  if (weatherIdResponse === 802 || weatherIdResponse === 803) {
+    weatherPhoto.style = `background-image: url(${cloudAndSkyPic});`;
+  }
+  if (weatherIdResponse === 804) {
+    weatherPhoto.style = `background-image: url(${cloudyPic});`;
+  }
+  if (weatherIdResponse >= 701 && weatherIdResponse <= 781) {
+    weatherPhoto.style = `background-image: url(${hazyPic});`;
+  }
   displayName(apiResponse);
 }
 
