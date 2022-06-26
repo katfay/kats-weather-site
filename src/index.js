@@ -49,7 +49,9 @@ function displayName(apiResponse) {
 function showWeatherPhoto(apiResponse) {
   console.log("showWeatherPhoto function has been called");
   let weatherIdResponse = apiResponse.data.weather[0].id;
-  console.log(weatherIdResponse);
+  let weatherPhoto = document.getElementById("weather-photo");
+  weatherPhoto.style =
+    "background-image: url(https://lh3.googleusercontent.com/F_OcShyH6D9qH9yJCHkkLB_U6HsgpmXlWA1Wqjd5GW3oDLRcAu1fFSU15akPfWHA64MAX-7romYaw-VJ4J06IkVph_NboXvDTf-YEWupUxZhAYDVqUnt7YCk_-dJMH2JjYPqhVzqDjp1p-YD7RXQsy4gSf1ttdjo0b2OquZR49ALPzjohBSiPu5XNypTUaYEbk_7JgcHNmEws8wCcKcHtGjYxV3f6XCU12-I0pxtGIiSeGMGmhu4YH6Ucra3dRDZ3v9lPq1XJzk8vRzuJL0eNXPl_7gUsE4EX9OeTyEAAN5PtDsdGiVRM5bG643SsJUn74eS3rieFl8Q2erEkfBPLp7Vm-k7RleFo_YY9iWhrRKdvK3l7iVpfDrp0BOQmpu1H25Fel3_aIkrRgLLT2IAM0p0GzaIIr5waqppeEvg7hCAd8k9EejIW7KptuzzUozOeA7kH34BZq0NJTzOOSNi-mtPSGZpN3FkI4XxxCM-a84a5AjBsaBOWtpCPbxoOdSzyK--a6Np7hwiUKpHUkWPkhAaj6X4pEkvU5mCbZYWMb_LQapnNjGMdjy1G1hqlSdwrsYuKmBSoKzUZz5s_pPQOHlhdryAgYCjDX9t4qZFsixhJGXi2wiU6LI4wX-jEn47Bnr4uqvFOhYt1ACjJnN9Im8jnKet6lvfMIOgm7PCcSZPlTXos0WKDKMV7jtPez86BG4bgrz68NfsPUZUsmyMpy7Q50Fg1PrIsNMB6oYun2qKaNH50JV0bX9bRlfEXf5FXbHIRiarExnv_oc7rmSFuUMW26CpJeixHMs=w732-h942-no?authuser=0);";
   displayName(apiResponse);
 }
 
