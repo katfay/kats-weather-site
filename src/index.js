@@ -1,5 +1,6 @@
 function showForecast(apiResponse) {
   console.log("showForecast has been called");
+  console.table(apiResponse.data);
   let apiKey = "a95c2c6739994ba4903e007ee817e7d1";
 }
 
@@ -21,15 +22,16 @@ function displayName(apiResponse) {
 }
 
 function returnCoords(apiResponse) {
-  let apiKey = "a95c2c6739994ba4903e007ee817e7d1";
   console.log("returnCoords has been called");
+  console.table(apiResponse.data);
   let latitude = console.log(
     apiResponse.data.coord.lat
   ); /*find latitude of searched city*/
   let longitude = console.log(
-    apiResponse.data.coord.long
+    apiResponse.data.coord.lon
   ); /*find longitude of searched city*/
-  let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
+  let apiKey = "a95c2c6739994ba4903e007ee817e7d1";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/forecast/daily?lat=-37.3667&lon=143.1667&appid=${apiKey}`; /* Set API call address to call a 6 day forecast from the API, based on the latitude and longitude of the searched city */
   axios.get(apiUrl).then(showForecast);
 }
 
@@ -58,7 +60,8 @@ function getCurrentMinutes(dateResponse) {
   console.log("getCurrentMinute function has been called");
   let currentMinutes = now.getMinutes(dateResponse);
   console.log(currentMinutes);
-  if (`${currentMinutes}`.length < 2) {
+  currentMinutes = `${currentMinutes}`; /* Updates the currentMinutes variable's data type to a string */
+  if (currentMinutes.length < 2) {
     currentMinutes = `0${currentMinutes}`;
   } /* Adds a 0 before minute value that is only one digit */
   let minutes = document.querySelector("#minutes");
