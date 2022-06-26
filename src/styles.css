@@ -168,6 +168,10 @@ input::-webkit-input-placeholder {
   width: 30%;
 }
 
+.hide {
+  display: none;
+}
+
 .main-container {
   margin-top: 3rem;
   margin-bottom: 1rem;
@@ -191,6 +195,10 @@ input::-webkit-input-placeholder {
 .right-column .now-info {
   font-weight: 700;
   font-size: smaller;
+}
+
+.temporary {
+  min-height: 10rem;
 }
 
 .temp-units {

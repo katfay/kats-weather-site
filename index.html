@@ -45,14 +45,14 @@
           <div class="here-info">
             In <i class="fa-solid fa-location-dot"></i>
             <span id="here"></span> now, it's
-            <i class="fa-solid fa-cloud"></i>
+            <i class="hide" id="geo-weather-icon"></i>
             <span id="temperature-here"></span>°C
           </div>
           <div class="now-info">
             <span id="day"></span> <span id="hour"></span
             ><span id="minutes"></span><span id="ampm"></span>
           </div>
-          <div>
+          <div class="hide">
             <ul>
               <li>
                 <span class="weather-icon"
@@ -86,6 +86,7 @@
               </li>
             </ul>
           </div>
+          <div class="temporary"></div>
           <div>
             <form>
               <input

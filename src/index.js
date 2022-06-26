@@ -149,7 +149,9 @@ function getDayName(dateResponse) {
 
 function getWeatherIcon(apiResponse) {
   console.log(apiResponse.data);
+  let weatherIcon = document.getElementById("geo-weather-icon");
   let weatherDescription = apiResponse.data.weather[0].id;
+  weatherIcon.className = "fa-solid fa-cloud";
 }
 
 function showGeoTemperature(apiResponse) {
