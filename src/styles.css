@@ -112,6 +112,14 @@ input::-webkit-input-placeholder {
 
 .background-pic .city-current-temp {
   font-size: 1.5rem;
+  margin-top: 0rem;
+}
+
+.background-pic .current-weather-info {
+  font-family: "Quicksand", sans-serif;
+  font-size: 0.75rem;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .col-6 {
@@ -120,6 +128,11 @@ input::-webkit-input-placeholder {
 
 .day-name {
   width: 50%;
+}
+
+.fa-cloud {
+  color: #7b879b;
+  font-size: 1rem;
 }
 
 .fa-cloud-bolt {

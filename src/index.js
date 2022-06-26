@@ -1,6 +1,35 @@
+function getWindConditions(apiResponse) {
+  let windDescription = document.querySelector("#wind-speed");
+  let windResult = apiResponse.data.wind.speed;
+  if (windResult <= 3) {
+    windDescription.innerHTML = "not windy";
+  } else {
+    if (windResult > 3 && windResult <= 10.5) {
+      windDescription.innerHTML = "fresh breeze";
+    } else {
+      if (windResult > 10.5 && windResult <= 16.5) {
+        windDescription.innerHTML = "windy";
+      } else {
+        if (windResult > 16.5) {
+          windDescription.innerHTML = "strong or gale force winds";
+        }
+      }
+    }
+  }
+}
+
 function returnWeatherConditions(apiResponse) {
   console.log("returnWeatherConditions has been called");
-  console.log(apiResponse.data.weather[0].description);
+  console.log(apiResponse);
+  let descriptionResponse = apiResponse.data.weather[0].description;
+  let description = document.querySelector("#weather-description");
+  description.innerHTML = descriptionResponse;
+  let feelsLikeResponse = apiResponse.data.main.feels_like;
+  let feelsLike = document.querySelector("#weather-feels");
+  feelsLikeResponse = Math.round(feelsLikeResponse);
+  feelsLikeResponse = `feels like ${feelsLikeResponse}°c`;
+  feelsLike.innerHTML = feelsLikeResponse;
+  getWindConditions(apiResponse);
 }
 
 function displayTemperature(apiResponse) {
