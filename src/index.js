@@ -52,12 +52,15 @@ function getMorningArvo(dateResponse) {
   } else {
     morningArvo.innerHTML = "pm";
   }
-}
+} /* Finds am/pm value based on the hour value from the browswer current date (24 hour clock), where any hour 12 or higher is pm */
 
 function getCurrentMinutes(dateResponse) {
   console.log("getCurrentMinute function has been called");
   let currentMinutes = now.getMinutes(dateResponse);
   console.log(currentMinutes);
+  if (`${currentMinutes}`.length < 2) {
+    currentMinutes = `0${currentMinutes}`;
+  } /* Adds a 0 before minute value that is only one digit */
   let minutes = document.querySelector("#minutes");
   minutes.innerHTML = `.${currentMinutes}`;
 }
