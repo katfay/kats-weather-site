@@ -37,20 +37,27 @@ function displayTemperature(apiResponse) {
   temperatureElement.innerHTML = Math.round(apiResponse.data.main.temp);
   let units = document.querySelector("#units");
   units.innerHTML = "°C";
+  returnWeatherConditions(apiResponse);
 }
 
 function displayName(apiResponse) {
   let cityElement = document.querySelector("#city");
   cityElement.innerHTML = apiResponse.data.name;
+  displayTemperature(apiResponse);
+}
+
+function showWeatherPhoto(apiResponse) {
+  console.log("showWeatherPhoto function has been called");
+  let weatherIdResponse = apiResponse.data.weather[0].id;
+  console.log(weatherIdResponse);
+  displayName(apiResponse);
 }
 
 function showSearchedCurrent() {
   let apiKey = "a95c2c6739994ba4903e007ee817e7d1";
   let userCity = document.querySelector("#searchedCity").value;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${userCity}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(displayName);
-  axios.get(apiUrl).then(displayTemperature);
-  axios.get(apiUrl).then(returnWeatherConditions);
+  axios.get(apiUrl).then(showWeatherPhoto);
 }
 
 function getMorningArvo(dateResponse) {
