@@ -148,14 +148,8 @@ function getDayName(dateResponse) {
 }
 
 function getWeatherIcon(apiResponse) {
-  let weatherIcon = document.getElementById("weather-icon-geo");
   console.log(apiResponse.data);
   let weatherDescription = apiResponse.data.weather[0].id;
-  if (weatherDescription === 803) {
-    weatherIcon.src = "https://bit.ly/3ykyTac";
-  } else {
-    weatherIcon.src = "https://bit.ly/3ykyTac";
-  }
 }
 
 function showGeoTemperature(apiResponse) {
