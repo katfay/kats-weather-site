@@ -55,44 +55,97 @@ function showCloudy() {
   artist.href = "https://unsplash.com/@dannyeve";
 }
 
-function chooseWeatherPic(apiResponse) {
-  console.log("chooseWeatherPic function has been called");
-  let weatherIdResponse = apiResponse.data.weather[0].id;
-
+function showCloudAndSky() {
   let cloudAndSkyPic = "https://bit.ly/3HVRb56";
+  let weatherPhoto = document.getElementById("weather-photo");
+  weatherPhoto.style = `background-image: url(${cloudAndSkyPic});`;
+  let artist = document.getElementById("artist-name");
+  artist.innerHTML = "Inderpreet Sekhon";
+  artist.href = "https://unsplash.com/@inderpreetsekhon";
+}
+
+function showFewClouds() {
   let fewCloudsPic = "https://bit.ly/3bwvcVS";
+  let weatherPhoto = document.getElementById("weather-photo");
+  weatherPhoto.style = `background-image: url(${fewCloudsPic});`;
+  let artist = document.getElementById("artist-name");
+  artist.innerHTML = "Gilbert Nathaniel Salim";
+  artist.href = "https://unsplash.com/es/@itsoonz";
+}
+
+function showClearSky() {
   let clearSkyPic = "https://bit.ly/3NmlvXq";
+  let weatherPhoto = document.getElementById("weather-photo");
+  weatherPhoto.style = `background-image: url(${clearSkyPic});`;
+  let artist = document.getElementById("artist-name");
+  artist.innerHTML = "Grooveland Designs";
+  artist.href = "https://unsplash.com/@groovelanddesigns";
+}
+
+function showSnow() {
   let snowPic = "https://bit.ly/39QArPS";
-  let thunderstormPic = "https://bit.ly/3xY0v3t";
+  let weatherPhoto = document.getElementById("weather-photo");
+  weatherPhoto.style = `background-image: url(${snowPic});`;
+  let artist = document.getElementById("artist-name");
+  artist.innerHTML = "Nathan Fertig";
+  artist.href = "https://unsplash.com/@nathanfertig";
+}
+
+function showRain() {
   let rainPic = "https://bit.ly/3Noron3";
+  let weatherPhoto = document.getElementById("weather-photo");
+  weatherPhoto.style = `background-image: url(${rainPic});`;
+  let artist = document.getElementById("artist-name");
+  artist.innerHTML = "Valentin Müller";
+  artist.href = "https://unsplash.com/@wackeltin_meem";
+}
+
+function showThunderstorm() {
+  let thunderstormPic = "https://bit.ly/3xY0v3t";
+  let weatherPhoto = document.getElementById("weather-photo");
+  weatherPhoto.style = `background-image: url(${thunderstormPic});`;
+  let artist = document.getElementById("artist-name");
+  artist.innerHTML = "Felix Mittermeier";
+  artist.href = "https://unsplash.com/@felix_mittermeier";
+}
+
+function showHazy() {
   let hazyPic = "https://bit.ly/3I7Zued";
   let weatherPhoto = document.getElementById("weather-photo");
+  weatherPhoto.style = `background-image: url(${hazyPic});`;
+  let artist = document.getElementById("artist-name");
+  artist.innerHTML = "Ivan Torres";
+  artist.href = "https://unsplash.com/@iavnt";
+}
+
+function chooseWeatherPic(apiResponse) {
+  let weatherIdResponse = apiResponse.data.weather[0].id;
   if (weatherIdResponse >= 200 && weatherIdResponse <= 232) {
-    weatherPhoto.style = `background-image: url(${thunderstormPic});`;
+    showThunderstorm();
   }
   if (
     (weatherIdResponse >= 300 && weatherIdResponse <= 321) ||
     (weatherIdResponse >= 500 && weatherIdResponse <= 531)
   ) {
-    weatherPhoto.style = `background-image: url(${rainPic});`;
+    showRain();
   }
   if (weatherIdResponse >= 600 && weatherIdResponse <= 622) {
-    weatherPhoto.style = `background-image: url(${snowPic});`;
+    showSnow();
   }
   if (weatherIdResponse === 800) {
-    weatherPhoto.style = `background-image: url(${clearSkyPic});`;
+    showClearSky();
   }
   if (weatherIdResponse === 801) {
-    weatherPhoto.style = `background-image: url(${fewCloudsPic});`;
+    showFewClouds();
   }
   if (weatherIdResponse === 802 || weatherIdResponse === 803) {
-    weatherPhoto.style = `background-image: url(${cloudAndSkyPic});`;
+    showCloudAndSky();
   }
   if (weatherIdResponse === 804) {
     showCloudy();
   }
   if (weatherIdResponse >= 701 && weatherIdResponse <= 781) {
-    weatherPhoto.style = `background-image: url(${hazyPic});`;
+    showHazy();
   }
   displayName(apiResponse);
 }
