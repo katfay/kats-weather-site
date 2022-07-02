@@ -20,7 +20,6 @@ function getWindConditions(apiResponse) {
 
 function returnWeatherConditions(apiResponse) {
   console.log("returnWeatherConditions has been called");
-  console.log(apiResponse);
   let descriptionResponse = apiResponse.data.weather[0].description;
   let description = document.querySelector("#weather-description");
   description.innerHTML = descriptionResponse;
@@ -61,10 +60,10 @@ function showWeatherPhoto(apiResponse) {
   if (weatherIdResponse >= 200 && weatherIdResponse <= 232) {
     weatherPhoto.style = `background-image: url(${thunderstormPic});`;
   }
-  if (weatherIdResponse >= 300 && weatherIdResponse <= 321) {
-    weatherPhoto.style = `background-image: url(${rainPic});`;
-  }
-  if (weatherIdResponse >= 500 && weatherIdResponse <= 531) {
+  if (
+    (weatherIdResponse >= 300 && weatherIdResponse <= 321) ||
+    (weatherIdResponse >= 500 && weatherIdResponse <= 531)
+  ) {
     weatherPhoto.style = `background-image: url(${rainPic});`;
   }
   if (weatherIdResponse >= 600 && weatherIdResponse <= 622) {
