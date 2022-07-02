@@ -43,12 +43,22 @@ function displayName(apiResponse) {
   let cityElement = document.querySelector("#city");
   cityElement.innerHTML = apiResponse.data.name;
   displayTemperature(apiResponse);
+  console.log(apiResponse.data);
 }
 
-function showWeatherPhoto(apiResponse) {
-  console.log("showWeatherPhoto function has been called");
-  let weatherIdResponse = apiResponse.data.weather[0].id;
+function showCloudy() {
   let cloudyPic = "https://bit.ly/3bnQ161";
+  let weatherPhoto = document.getElementById("weather-photo");
+  weatherPhoto.style = `background-image: url(${cloudyPic});`;
+  let artist = document.getElementById("artist-name");
+  artist.innerHTML = "Daoudi Aissa";
+  artist.href = "https://unsplash.com/@dannyeve";
+}
+
+function chooseWeatherPic(apiResponse) {
+  console.log("chooseWeatherPic function has been called");
+  let weatherIdResponse = apiResponse.data.weather[0].id;
+
   let cloudAndSkyPic = "https://bit.ly/3HVRb56";
   let fewCloudsPic = "https://bit.ly/3bwvcVS";
   let clearSkyPic = "https://bit.ly/3NmlvXq";
@@ -79,7 +89,7 @@ function showWeatherPhoto(apiResponse) {
     weatherPhoto.style = `background-image: url(${cloudAndSkyPic});`;
   }
   if (weatherIdResponse === 804) {
-    weatherPhoto.style = `background-image: url(${cloudyPic});`;
+    showCloudy();
   }
   if (weatherIdResponse >= 701 && weatherIdResponse <= 781) {
     weatherPhoto.style = `background-image: url(${hazyPic});`;
@@ -91,7 +101,7 @@ function showSearchedCurrent() {
   let apiKey = "a95c2c6739994ba4903e007ee817e7d1";
   let userCity = document.querySelector("#searchedCity").value;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${userCity}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showWeatherPhoto);
+  axios.get(apiUrl).then(chooseWeatherPic);
 }
 
 function getMorningArvo(dateResponse) {
