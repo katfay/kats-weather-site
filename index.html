@@ -32,21 +32,35 @@
     <div class="container main-container">
       <div class="row">
         <div class="col-6 background-pic" id="weather-photo">
-          <div id="city"></div>
+          <div id="city" aria-live="polite"></div>
           <div class="city-current-temp">
-            <span id="searched-temperature"></span>
-            <span class="temp-units" id="units"></span>
+            <span id="searched-temperature" aria-live="polite"></span>
+            <span class="temp-units" id="units" aria-live="polite"></span>
           </div>
-          <div class="current-weather-info" id="weather-description"></div>
-          <div class="current-weather-info" id="wind-speed"></div>
-          <div class="current-weather-info" id="weather-feels"></div>
+          <div
+            class="current-weather-info"
+            id="weather-description"
+            aria-live="polite"
+          ></div>
+          <div
+            class="current-weather-info"
+            id="wind-speed"
+            aria-live="polite"
+          ></div>
+          <div
+            class="current-weather-info"
+            id="weather-feels"
+            aria-live="polite"
+          ></div>
         </div>
         <div class="col-6 right-column">
           <div class="here-info">
-            In <i class="fa-solid fa-location-dot"></i>
-            <span id="here"></span> now, it's
-            <i class="hide" id="geo-weather-icon"></i>
-            <span id="temperature-here"></span>°C
+            <p>
+              In <i class="fa-solid fa-location-dot"></i>
+              <span id="here"></span> now, it's
+              <i class="hide" id="geo-weather-icon"></i>
+              <span id="temperature-here"></span>°C
+            </p>
           </div>
           <div class="now-info">
             <span id="day"></span> <span id="hour"></span
@@ -88,17 +102,19 @@
           </div>
           <div class="temporary"></div>
           <div>
-            <form>
-              <input
-                type="search"
-                placeholder="Enter a city ..."
-                autofocus
-                id="searchedCity"
-              />
-              <button type="button" id="userSearch">
-                <i class="fa-solid fa-magnifying-glass-location"></i>
-              </button>
-            </form>
+            <nav>
+              <form>
+                <input
+                  type="search"
+                  placeholder="Enter a city ..."
+                  autofocus
+                  id="searchedCity"
+                />
+                <button type="button" aria-label="search" id="userSearch">
+                  <i class="fa-solid fa-magnifying-glass-location"></i>
+                </button>
+              </form>
+            </nav>
           </div>
         </div>
       </div>
@@ -107,23 +123,46 @@
       <div class="row attributions">
         <div class="col-12">
           ⌨️ by
-          <a href="https://medium.com/@katfay" target="_blank">Kat Fay</a>
-          <a href="https://au.linkedin.com/in/katfay" target="_blank"
+          <a
+            href="https://medium.com/@katfay"
+            target="_blank"
+            aria-label="developer-blog"
+            >Kat Fay</a
+          >
+          <a
+            href="https://au.linkedin.com/in/katfay"
+            target="_blank"
+            aria-label="developer-linkedin-site"
             ><i class="fa-brands fa-linkedin"></i
           ></a>
-          <a href="https://twitter.com/katfay_" target="_blank"
+          <a
+            href="https://twitter.com/katfay_"
+            target="_blank"
+            aria-label="developer-twitter"
             ><i class="fa-brands fa-twitter"></i
           ></a>
-          <a href="https://github.com/katfay" target="_blank"
+          <a
+            href="https://github.com/katfay"
+            target="_blank"
+            aria-label="developer-github"
             ><i class="fa-brands fa-github"></i
           ></a>
           <br />
           📸 by
-          <a href="https://szaboviktor.com/" id="artist-name" target="_blank"
+          <a
+            href="https://szaboviktor.com/"
+            id="artist-name"
+            target="_blank"
+            aria-label="photographer-website"
             >Szabo Viktor</a
           >
           on
-          <a href="https://unsplash.com/explore" target="_blank">Unsplash</a>
+          <a
+            href="https://unsplash.com/explore"
+            target="_blank"
+            aria-label="photography-source"
+            >Unsplash</a
+          >
         </div>
       </div>
     </div>

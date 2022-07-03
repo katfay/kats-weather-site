@@ -55,6 +55,10 @@ li {
   color: #7b879b;
 }
 
+p {
+  margin-bottom: 0;
+}
+
 span {
   display: inline-block;
 }
