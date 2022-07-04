@@ -29,143 +29,151 @@
     <title>what's the weather?🌧</title>
   </head>
   <body>
-    <div class="container main-container">
-      <div class="row">
-        <div class="col-6 background-pic" id="weather-photo">
-          <div id="city" aria-live="polite"></div>
-          <div class="city-current-temp">
-            <span id="searched-temperature" aria-live="polite"></span>
-            <span class="temp-units" id="units" aria-live="polite"></span>
+    <main>
+      <div class="container main-container">
+        <div class="row">
+          <div
+            class="col-6 background-pic"
+            role="img"
+            aria-label="scenic photograph of stars or current weather conditions"
+            id="weather-photo"
+          >
+            <div id="city" aria-live="polite"></div>
+            <div class="city-current-temp">
+              <span id="searched-temperature" aria-live="polite"></span>
+              <span class="temp-units" id="units" aria-live="polite"></span>
+            </div>
+            <div
+              class="current-weather-info"
+              id="weather-description"
+              aria-live="polite"
+            ></div>
+            <div
+              class="current-weather-info"
+              id="wind-speed"
+              aria-live="polite"
+            ></div>
+            <div
+              class="current-weather-info"
+              id="weather-feels"
+              aria-live="polite"
+            ></div>
           </div>
-          <div
-            class="current-weather-info"
-            id="weather-description"
-            aria-live="polite"
-          ></div>
-          <div
-            class="current-weather-info"
-            id="wind-speed"
-            aria-live="polite"
-          ></div>
-          <div
-            class="current-weather-info"
-            id="weather-feels"
-            aria-live="polite"
-          ></div>
+          <div class="col-6 right-column">
+            <div class="here-info">
+              <p>
+                In <i class="fa-solid fa-location-dot"></i>
+                <span id="here"></span> now, it's
+                <i class="hide" id="geo-weather-icon"></i>
+                <span id="temperature-here"></span>°C
+              </p>
+            </div>
+            <div class="now-info">
+              <span id="day"></span> <span id="hour"></span
+              ><span id="minutes"></span><span id="ampm"></span>
+            </div>
+            <div class="hide">
+              <ul>
+                <li>
+                  <span class="weather-icon"
+                    ><i class="fa-solid fa-sun h4"></i></span
+                  ><span class="day-name">JS Day 1 </span
+                  ><span class="forecast">JS temp</span>
+                </li>
+                <li>
+                  <span class="weather-icon"
+                    ><i class="fa-solid fa-cloud-sun h4"></i></span
+                  ><span class="day-name">JS Day 2 </span
+                  ><span class="forecast">JS temp</span>
+                </li>
+                <li>
+                  <span class="weather-icon"
+                    ><i class="fa-solid fa-cloud-rain h4"></i></span
+                  ><span class="day-name">JS Day 3 </span
+                  ><span class="forecast">JS temp</span>
+                </li>
+                <li>
+                  <span class="weather-icon"
+                    ><i class="fa-solid fa-snowflake h4"></i></span
+                  ><span class="day-name">JS Day 4 </span
+                  ><span class="forecast">JS temp</span>
+                </li>
+                <li>
+                  <span class="weather-icon"
+                    ><i class="fa-solid fa-cloud-bolt h4"></i></span
+                  ><span class="day-name">JS Day 5 </span
+                  ><span class="forecast">JS temp</span>
+                </li>
+              </ul>
+            </div>
+            <div class="temporary"></div>
+            <div>
+              <nav>
+                <form aria-label="city search field">
+                  <input
+                    type="search"
+                    placeholder="Enter a city ..."
+                    id="searchedCity"
+                  />
+                  <button type="button" aria-label="search" id="userSearch">
+                    <i class="fa-solid fa-magnifying-glass-location"></i>
+                  </button>
+                </form>
+              </nav>
+            </div>
+          </div>
         </div>
-        <div class="col-6 right-column">
-          <div class="here-info">
-            <p>
-              In <i class="fa-solid fa-location-dot"></i>
-              <span id="here"></span> now, it's
-              <i class="hide" id="geo-weather-icon"></i>
-              <span id="temperature-here"></span>°C
-            </p>
-          </div>
-          <div class="now-info">
-            <span id="day"></span> <span id="hour"></span
-            ><span id="minutes"></span><span id="ampm"></span>
-          </div>
-          <div class="hide">
-            <ul>
-              <li>
-                <span class="weather-icon"
-                  ><i class="fa-solid fa-sun h4"></i></span
-                ><span class="day-name">JS Day 1 </span
-                ><span class="forecast">JS temp</span>
-              </li>
-              <li>
-                <span class="weather-icon"
-                  ><i class="fa-solid fa-cloud-sun h4"></i></span
-                ><span class="day-name">JS Day 2 </span
-                ><span class="forecast">JS temp</span>
-              </li>
-              <li>
-                <span class="weather-icon"
-                  ><i class="fa-solid fa-cloud-rain h4"></i></span
-                ><span class="day-name">JS Day 3 </span
-                ><span class="forecast">JS temp</span>
-              </li>
-              <li>
-                <span class="weather-icon"
-                  ><i class="fa-solid fa-snowflake h4"></i></span
-                ><span class="day-name">JS Day 4 </span
-                ><span class="forecast">JS temp</span>
-              </li>
-              <li>
-                <span class="weather-icon"
-                  ><i class="fa-solid fa-cloud-bolt h4"></i></span
-                ><span class="day-name">JS Day 5 </span
-                ><span class="forecast">JS temp</span>
-              </li>
-            </ul>
-          </div>
-          <div class="temporary"></div>
-          <div>
-            <nav>
-              <form>
-                <input
-                  type="search"
-                  placeholder="Enter a city ..."
-                  autofocus
-                  id="searchedCity"
-                />
-                <button type="button" aria-label="search" id="userSearch">
-                  <i class="fa-solid fa-magnifying-glass-location"></i>
-                </button>
-              </form>
-            </nav>
+      </div>
+    </main>
+    <footer>
+      <div class="container">
+        <div class="row attributions">
+          <div class="col-12">
+            ⌨️ by
+            <a
+              href="https://medium.com/@katfay"
+              target="_blank"
+              aria-label="developer-blog"
+              >Kat Fay</a
+            >
+            <a
+              href="https://au.linkedin.com/in/katfay"
+              target="_blank"
+              aria-label="developer-linkedin-site"
+              ><i class="fa-brands fa-linkedin"></i
+            ></a>
+            <a
+              href="https://twitter.com/katfay_"
+              target="_blank"
+              aria-label="developer-twitter"
+              ><i class="fa-brands fa-twitter"></i
+            ></a>
+            <a
+              href="https://github.com/katfay"
+              target="_blank"
+              aria-label="developer-github"
+              ><i class="fa-brands fa-github"></i
+            ></a>
+            <br />
+            📸 by
+            <a
+              href="https://szaboviktor.com/"
+              id="artist-name"
+              target="_blank"
+              aria-label="photographer-website"
+              >Szabo Viktor</a
+            >
+            on
+            <a
+              href="https://unsplash.com/explore"
+              target="_blank"
+              aria-label="photography-source"
+              >Unsplash</a
+            >
           </div>
         </div>
       </div>
-    </div>
-    <div class="container">
-      <div class="row attributions">
-        <div class="col-12">
-          ⌨️ by
-          <a
-            href="https://medium.com/@katfay"
-            target="_blank"
-            aria-label="developer-blog"
-            >Kat Fay</a
-          >
-          <a
-            href="https://au.linkedin.com/in/katfay"
-            target="_blank"
-            aria-label="developer-linkedin-site"
-            ><i class="fa-brands fa-linkedin"></i
-          ></a>
-          <a
-            href="https://twitter.com/katfay_"
-            target="_blank"
-            aria-label="developer-twitter"
-            ><i class="fa-brands fa-twitter"></i
-          ></a>
-          <a
-            href="https://github.com/katfay"
-            target="_blank"
-            aria-label="developer-github"
-            ><i class="fa-brands fa-github"></i
-          ></a>
-          <br />
-          📸 by
-          <a
-            href="https://szaboviktor.com/"
-            id="artist-name"
-            target="_blank"
-            aria-label="photographer-website"
-            >Szabo Viktor</a
-          >
-          on
-          <a
-            href="https://unsplash.com/explore"
-            target="_blank"
-            aria-label="photography-source"
-            >Unsplash</a
-          >
-        </div>
-      </div>
-    </div>
+    </footer>
     <script src="src/index.js"></script>
   </body>
 </html>
