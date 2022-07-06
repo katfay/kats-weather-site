@@ -1,30 +1,35 @@
+function formatSearchedDayName(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  console.log(day);
+  let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+  console.log(days[day]);
+  return days[day];
+}
+
 function showForecast(apiResponse) {
-  console.log(apiResponse.data.daily);
-
-  let todayWeatherCondition = apiResponse.data.daily[0].weather[0].id;
-  console.log(todayWeatherCondition);
-
   let forecastElement = document.querySelector("#forecast");
-
   let forecastHTML = `<ul>`;
-
   let forecastData = apiResponse.data.daily;
-
-  let forecastDays = ["today", "tomorrow", "day3", "day4", "day5"];
-  forecastData.forEach(function (forecastDay) {
-    forecastHTML =
-      forecastHTML +
-      `
+  console.log(forecastData);
+  forecastData.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `
     <li>
       <span class="weather-icon"
-        ><i class="fa-solid fa-sun h4"></i>${forecastDay.weather[0].icon}</span
-      ><span class="day-name">${forecastDay.dt}</span
+        ><img src="http://openweathermap.org/img/wn/${
+          forecastDay.weather[0].icon
+        }@2x.png" width="40px"></span
+      ><span class="day-name">${formatSearchedDayName(forecastDay.dt)}</span
       ><span class="forecast">Min: ${Math.round(
         forecastDay.temp.min
       )}°C, Max: ${Math.round(forecastDay.temp.max)}°C</span
       >
     </li>
     `;
+    }
   });
   forecastHTML = forecastHTML + `</ul>`;
   forecastElement.innerHTML = forecastHTML;
