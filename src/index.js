@@ -1,13 +1,5 @@
 function showForecast(apiResponse) {
-  console.log("showForecast has been called");
-  console.log(apiResponse.data);
-
-  let todayMax = apiResponse.data.daily[0].temp.max;
-  todayMax = Math.round(todayMax);
-  console.log(todayMax);
-  let todayMin = apiResponse.data.daily[0].temp.min;
-  todayMin = Math.round(todayMin);
-  console.log(todayMin);
+  console.log(apiResponse.data.daily);
 
   let todayWeatherCondition = apiResponse.data.daily[0].weather[0].id;
   console.log(todayWeatherCondition);
@@ -15,16 +7,22 @@ function showForecast(apiResponse) {
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<ul>`;
-  let days = ["Day1", "Day2", "Day3", "Day4", "Day5"];
-  days.forEach(function (day) {
+
+  let forecastData = apiResponse.data.daily;
+
+  let forecastDays = ["today", "tomorrow", "day3", "day4", "day5"];
+  forecastData.forEach(function (forecastDay) {
     forecastHTML =
       forecastHTML +
       `
     <li>
       <span class="weather-icon"
-        ><i class="fa-solid fa-sun h4"></i></span
-      ><span class="day-name">${day}</span
-      ><span class="forecast">JS temp</span>
+        ><i class="fa-solid fa-sun h4"></i>${forecastDay.weather[0].icon}</span
+      ><span class="day-name">${forecastDay.dt}</span
+      ><span class="forecast">Min: ${Math.round(
+        forecastDay.temp.min
+      )}°C, Max: ${Math.round(forecastDay.temp.max)}°C</span
+      >
     </li>
     `;
   });
