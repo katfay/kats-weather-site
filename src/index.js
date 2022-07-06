@@ -1,6 +1,17 @@
 function showForecast(apiResponse) {
   console.log("showForecast has been called");
   console.log(apiResponse.data);
+
+  let todayMax = apiResponse.data.daily[0].temp.max;
+  todayMax = Math.round(todayMax);
+  console.log(todayMax);
+  let todayMin = apiResponse.data.daily[0].temp.min;
+  todayMin = Math.round(todayMin);
+  console.log(todayMin);
+
+  let todayWeatherCondition = apiResponse.data.daily[0].weather[0].id;
+  console.log(todayWeatherCondition);
+
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<ul>`;
@@ -25,7 +36,7 @@ function getSearchedCoords(apiResponse) {
   let latitude = apiResponse.data.coord.lat;
   let longitude = apiResponse.data.coord.lon;
   let apiKey = "a95c2c6739994ba4903e007ee817e7d1";
-  let apiForecastUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
+  let apiForecastUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
   axios.get(apiForecastUrl).then(showForecast);
 }
 
