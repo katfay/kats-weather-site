@@ -1,3 +1,36 @@
+function showForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<ul>`;
+  let days = ["Day1", "Day2", "Day3", "Day4", "Day5"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+    <li>
+      <span class="weather-icon"
+        ><i class="fa-solid fa-sun h4"></i></span
+      ><span class="day-name">${day}</span
+      ><span class="forecast">JS temp</span>
+    </li>
+    `;
+  });
+  forecastHTML = forecastHTML + `</ul>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function getSearchedCoords(apiResponse) {
+  console.log("getSearchedCoords has been called");
+  console.log(apiResponse.data);
+  let latitude = apiResponse.data.coord.lat;
+  console.log(latitude);
+  let longitude = apiResponse.data.coord.lon;
+  console.log(longitude);
+
+  let apiKey = "a95c2c6739994ba4903e007ee817e7d1";
+  let apiForecastUrl = `https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&appid=${apiKey}`;
+}
+
 function getWindConditions(apiResponse) {
   let windDescription = document.querySelector("#wind-speed");
   let windResult = apiResponse.data.wind.speed;
@@ -16,6 +49,7 @@ function getWindConditions(apiResponse) {
       }
     }
   }
+  getSearchedCoords(apiResponse);
 }
 
 function returnWeatherConditions(apiResponse) {
@@ -43,7 +77,6 @@ function displayName(apiResponse) {
   let cityElement = document.querySelector("#city");
   cityElement.innerHTML = apiResponse.data.name;
   displayTemperature(apiResponse);
-  console.log(apiResponse.data);
 }
 
 function showCloudy() {
@@ -259,3 +292,5 @@ searchButton.addEventListener(
   "click",
   showSearchedCurrent
 ); /* When user clicks search, find and display the searched city name and its current temperature on the page */
+
+showForecast();
