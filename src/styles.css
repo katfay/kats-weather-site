@@ -52,7 +52,7 @@ input {
 }
 
 li {
-  color: #7b879b;
+  color: #041836;
 }
 
 p {
@@ -131,11 +131,11 @@ input::-webkit-input-placeholder {
 }
 
 .day-name {
-  width: 50%;
+  width: 35%;
 }
 
 .fa-cloud {
-  color: #7b879b;
+  color: #041836;
   font-size: 1rem;
 }
 
@@ -168,8 +168,13 @@ input::-webkit-input-placeholder {
   font-size: 1rem;
 }
 
+.fa-wind {
+  color: #6798c0;
+  font-size: 1rem;
+}
+
 .forecast {
-  width: 30%;
+  width: 10%;
 }
 
 .hide {
@@ -210,7 +215,7 @@ input::-webkit-input-placeholder {
 }
 
 .weather-icon {
-  width: 20%;
+  width: 15%;
 }
 
 .test-border {

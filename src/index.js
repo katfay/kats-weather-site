@@ -6,37 +6,30 @@ function formatDayName(timestamp) {
 }
 
 function formatWeatherCode(weatherCode) {
-  let code = weatherCode;
-  let codes = [
-    {
-      values: [200, 201, 202, 210, 211, 212, 221, 230, 231, 232],
-      description: "thunderstorm",
-    },
-    {
-      values: [
-        300, 301, 302, 310, 311, 312, 313, 314, 321, 500, 501, 502, 503, 504,
-        511, 520, 521, 522, 531,
-      ],
-      description: "rain",
-    },
-    {
-      values: [600, 601, 602, 611, 612, 613, 616, 620, 621, 622],
-      description: "snow",
-    },
-    {
-      values: [701, 711, 721, 731, 741, 751, 761, 762, 771, 781],
-      description: "hazy",
-    },
-    {
-      values: [800],
-      description: "clear sky",
-    },
-    {
-      values: [801, 802, 803, 804],
-      description: "clouds",
-    },
-  ];
-  console.log(codes.values[weatherCode]);
+  if (weatherCode >= 200 && weatherCode <= 232) {
+    return `<i class="fa-solid fa-cloud-bolt h4"></i>`;
+  }
+  if (
+    (weatherCode >= 300 && weatherCode <= 321) ||
+    (weatherCode >= 500 && weatherCode <= 531)
+  ) {
+    return `<i class="fa-solid fa-cloud-rain h4"></i>`;
+  }
+  if (weatherCode >= 600 && weatherCode <= 622) {
+    return `<i class="fa-solid fa-snowflake h4"></i>`;
+  }
+  if (weatherCode === 800) {
+    return `<i class="fa-solid fa-sun h4"></i>`;
+  }
+  if (weatherCode >= 801 && weatherCode <= 803) {
+    return `<i class="fa-solid fa-cloud-sun h4"></i>`;
+  }
+  if (weatherCode === 804) {
+    return `<i class="fa-solid fa-cloud h4"></i>`;
+  }
+  if (weatherCode >= 701 && weatherCode <= 781) {
+    return `<i class="fa-solid fa-wind h4"></i>`;
+  }
 }
 
 function showForecast(apiResponse) {
@@ -52,9 +45,11 @@ function showForecast(apiResponse) {
       <span class="weather-icon"
         >${formatWeatherCode(forecastDay.weather[0].id)}</span
       ><span class="day-name">${formatDayName(forecastDay.dt)}</span
-      ><span class="forecast">Min: ${Math.round(
-        forecastDay.temp.min
-      )}°C, Max: ${Math.round(forecastDay.temp.max)}°C</span
+      ><span class="forecast">${Math.round(forecastDay.temp.min)}</span
+      >
+      <span class="forecast">—</span
+      >
+      <span class="forecast">${Math.round(forecastDay.temp.max)}°C</span
       >
     </li>
     `;
