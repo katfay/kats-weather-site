@@ -6,33 +6,37 @@ function formatDayName(timestamp) {
 }
 
 function formatWeatherCode(weatherCode) {
-  if (weatherCode >= 200 && weatherCode <= 232) {
-    console.log("Thunderstorm");
-  }
-  if (
-    (weatherCode >= 300 && weatherCode <= 321) ||
-    (weatherCode >= 500 && weatherCode <= 531)
-  ) {
-    console.log("Rain");
-  }
-  if (weatherCode >= 600 && weatherCode <= 622) {
-    console.log("Snow");
-  }
-  if (weatherCode === 800) {
-    console.log("ClearSky");
-  }
-  if (weatherCode === 801) {
-    console.log("FewClouds");
-  }
-  if (weatherCode === 802 || weatherCode === 803) {
-    console.log("BrokenClouds");
-  }
-  if (weatherCode === 804) {
-    console.log("Cloudy");
-  }
-  if (weatherCode >= 701 && weatherCode <= 781) {
-    console.log("Hazy");
-  }
+  let code = weatherCode;
+  let codes = [
+    {
+      values: [200, 201, 202, 210, 211, 212, 221, 230, 231, 232],
+      description: "thunderstorm",
+    },
+    {
+      values: [
+        300, 301, 302, 310, 311, 312, 313, 314, 321, 500, 501, 502, 503, 504,
+        511, 520, 521, 522, 531,
+      ],
+      description: "rain",
+    },
+    {
+      values: [600, 601, 602, 611, 612, 613, 616, 620, 621, 622],
+      description: "snow",
+    },
+    {
+      values: [701, 711, 721, 731, 741, 751, 761, 762, 771, 781],
+      description: "hazy",
+    },
+    {
+      values: [800],
+      description: "clear sky",
+    },
+    {
+      values: [801, 802, 803, 804],
+      description: "clouds",
+    },
+  ];
+  console.log(codes.values[weatherCode]);
 }
 
 function showForecast(apiResponse) {
