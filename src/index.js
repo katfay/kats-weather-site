@@ -1,17 +1,44 @@
-function formatSearchedDayName(timestamp) {
+function formatDayName(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
-  console.log(day);
   let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
-  console.log(days[day]);
   return days[day];
+}
+
+function formatWeatherCode(weatherCode) {
+  if (weatherCode >= 200 && weatherCode <= 232) {
+    console.log("Thunderstorm");
+  }
+  if (
+    (weatherCode >= 300 && weatherCode <= 321) ||
+    (weatherCode >= 500 && weatherCode <= 531)
+  ) {
+    console.log("Rain");
+  }
+  if (weatherCode >= 600 && weatherCode <= 622) {
+    console.log("Snow");
+  }
+  if (weatherCode === 800) {
+    console.log("ClearSky");
+  }
+  if (weatherCode === 801) {
+    console.log("FewClouds");
+  }
+  if (weatherCode === 802 || weatherCode === 803) {
+    console.log("BrokenClouds");
+  }
+  if (weatherCode === 804) {
+    console.log("Cloudy");
+  }
+  if (weatherCode >= 701 && weatherCode <= 781) {
+    console.log("Hazy");
+  }
 }
 
 function showForecast(apiResponse) {
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<ul>`;
   let forecastData = apiResponse.data.daily;
-  console.log(forecastData);
   forecastData.forEach(function (forecastDay, index) {
     if (index < 5) {
       forecastHTML =
@@ -19,10 +46,8 @@ function showForecast(apiResponse) {
         `
     <li>
       <span class="weather-icon"
-        ><img src="http://openweathermap.org/img/wn/${
-          forecastDay.weather[0].icon
-        }@2x.png" width="40px"></span
-      ><span class="day-name">${formatSearchedDayName(forecastDay.dt)}</span
+        >${formatWeatherCode(forecastDay.weather[0].id)}</span
+      ><span class="day-name">${formatDayName(forecastDay.dt)}</span
       ><span class="forecast">Min: ${Math.round(
         forecastDay.temp.min
       )}°C, Max: ${Math.round(forecastDay.temp.max)}°C</span
