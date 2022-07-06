@@ -38,6 +38,10 @@ button i {
   transition: 1s all ease-in-out;
 }
 
+form {
+  margin-top: 10%;
+}
+
 input {
   border-radius: 100rem 0 0 100rem;
   border: solid 0.1rem rgb(246, 182, 148);
@@ -51,10 +55,6 @@ input {
   vertical-align: middle;
 }
 
-li {
-  color: #041836;
-}
-
 p {
   margin-bottom: 0;
 }
@@ -66,12 +66,13 @@ span {
 ul {
   list-style-type: none;
   display: block;
-  max-width: 50%;
+  max-width: 55%;
   margin: 0 auto;
-  padding-left: 0rem;
+  padding-left: 2rem;
   margin-top: 15%;
   margin-bottom: 15%;
   text-align: left;
+  color: #041836;
 }
 
 a:hover {
@@ -193,17 +194,18 @@ input::-webkit-input-placeholder {
   background-color: #fff;
   font-family: "Quicksand", sans-serif;
   font-size: 1rem;
-  color: #041836;
+  color: #7b879b;
   text-align: center;
 }
 
 .right-column .here-info {
-  margin-top: 2.5rem;
+  margin-top: 30%;
 }
 
 .right-column .now-info {
   font-weight: 700;
   font-size: smaller;
+  margin-bottom: 1rem;
 }
 
 .temporary {

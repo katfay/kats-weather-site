@@ -58,3 +58,41 @@ function showWeatherPhoto(apiResponse) {
   }
   displayName(apiResponse);
 }
+
+<ul>
+  <li>
+    <span class="weather-icon">
+      <i class="fa-solid fa-sun h4"></i>
+    </span>
+    <span class="day-name">Test day</span>
+    <span class="forecast">JS temp</span>
+  </li>
+  <li>
+    <span class="weather-icon">
+      <i class="fa-solid fa-cloud-sun h4"></i>
+    </span>
+    <span class="day-name">JS Day 2 </span>
+    <span class="forecast">JS temp</span>
+  </li>
+  <li>
+    <span class="weather-icon">
+      <i class="fa-solid fa-cloud-rain h4"></i>
+    </span>
+    <span class="day-name">JS Day 3 </span>
+    <span class="forecast">JS temp</span>
+  </li>
+  <li>
+    <span class="weather-icon">
+      <i class="fa-solid fa-snowflake h4"></i>
+    </span>
+    <span class="day-name">JS Day 4 </span>
+    <span class="forecast">JS temp</span>
+  </li>
+  <li>
+    <span class="weather-icon">
+      <i class="fa-solid fa-cloud-bolt h4"></i>
+    </span>
+    <span class="day-name">JS Day 5 </span>
+    <span class="forecast">JS temp</span>
+  </li>
+</ul>;
