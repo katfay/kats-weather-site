@@ -1,4 +1,6 @@
-function showForecast() {
+function showForecast(apiResponse) {
+  console.log("showForecast has been called");
+  console.log(apiResponse.data);
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<ul>`;
@@ -20,15 +22,11 @@ function showForecast() {
 }
 
 function getSearchedCoords(apiResponse) {
-  console.log("getSearchedCoords has been called");
-  console.log(apiResponse.data);
   let latitude = apiResponse.data.coord.lat;
-  console.log(latitude);
   let longitude = apiResponse.data.coord.lon;
-  console.log(longitude);
-
   let apiKey = "a95c2c6739994ba4903e007ee817e7d1";
-  let apiForecastUrl = `https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&appid=${apiKey}`;
+  let apiForecastUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
+  axios.get(apiForecastUrl).then(showForecast);
 }
 
 function getWindConditions(apiResponse) {
@@ -53,7 +51,6 @@ function getWindConditions(apiResponse) {
 }
 
 function returnWeatherConditions(apiResponse) {
-  console.log("returnWeatherConditions has been called");
   let descriptionResponse = apiResponse.data.weather[0].description;
   let description = document.querySelector("#weather-description");
   description.innerHTML = descriptionResponse;
@@ -191,7 +188,6 @@ function showSearchedCurrent() {
 }
 
 function getMorningArvo(dateResponse) {
-  console.log("getMorningArvo function has been called");
   let morningArvo = document.querySelector("#ampm");
   let hour = now.getHours(dateResponse);
   if (hour <= 11) {
@@ -202,9 +198,7 @@ function getMorningArvo(dateResponse) {
 } /* Finds am/pm value based on the hour value from the browswer current date (24 hour clock), where any hour 12 or higher is pm */
 
 function getCurrentMinutes(dateResponse) {
-  console.log("getCurrentMinute function has been called");
   let currentMinutes = now.getMinutes(dateResponse);
-  console.log(currentMinutes);
   currentMinutes = `${currentMinutes}`; /* Updates the currentMinutes variable's data type to a string */
   if (currentMinutes.length < 2) {
     currentMinutes = `0${currentMinutes}`;
@@ -214,19 +208,16 @@ function getCurrentMinutes(dateResponse) {
 }
 
 function getCurrentHour(dateResponse) {
-  console.log("getCurrentHour function has been called");
   let hours = [
     12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
     11,
   ];
   let currentHour = hours[now.getHours(dateResponse)];
-  console.log(currentHour);
   let hour = document.querySelector("#hour");
   hour.innerHTML = currentHour;
 }
 
 function getDayName(dateResponse) {
-  console.log("getDayName function has been called");
   let dayNames = [
     "Sunday",
     "Monday",
@@ -237,13 +228,11 @@ function getDayName(dateResponse) {
     "Saturday",
   ];
   let dayName = dayNames[now.getDay(dateResponse)];
-  console.log(dayName);
   let today = document.querySelector("#day");
   today.innerHTML = `${dayName},`;
 }
 
 function getWeatherIcon(apiResponse) {
-  console.log(apiResponse.data);
   let weatherIcon = document.getElementById("geo-weather-icon");
   let weatherDescription = apiResponse.data.weather[0].id;
   weatherIcon.className = "fa-solid fa-cloud";
@@ -251,7 +240,6 @@ function getWeatherIcon(apiResponse) {
 
 function showGeoTemperature(apiResponse) {
   let geoTemperatureResult = Math.round(apiResponse.data.main.temp);
-  console.log(geoTemperatureResult);
   let temperatureHere = document.querySelector("#temperature-here");
   temperatureHere.innerHTML = geoTemperatureResult;
   getWeatherIcon(apiResponse);
@@ -292,5 +280,3 @@ searchButton.addEventListener(
   "click",
   showSearchedCurrent
 ); /* When user clicks search, find and display the searched city name and its current temperature on the page */
-
-showForecast();
